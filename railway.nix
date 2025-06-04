@@ -1,29 +1,17 @@
-<<<<<<< HEAD
 { pkgs }:
 
+let
+  python = pkgs.python310;
+in
 pkgs.mkShell {
-  buildInputs = with pkgs; [
-    python312
-    python312Packages.setuptools
-    python312Packages.pip
-    python312Packages.wheel
-    python312Packages.numpy
-    python312Packages.distutils-extra
-    python312Packages.geopandas
-    python312Packages.shapely
-    python312Packages.requests
+  buildInputs = [
+    python
+    python.pkgs.setuptools
+    python.pkgs.pip
+    python.pkgs.wheel
+    python.pkgs.numpy
+    python.pkgs.requests
+    python.pkgs.shapely
+    python.pkgs.geopandas
   ];
 }
-=======
-{ pkgs }:
-
-pkgs.mkShell {
-  buildInputs = with pkgs; [
-    python312
-    python312Packages.setuptools
-    python312Packages.pip
-    python312Packages.wheel
-    python312Packages.distutils-extra
-  ];
-}
->>>>>>> d4cc248 (Add proper Nix environment for Railway Python builds)
